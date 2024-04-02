@@ -46,9 +46,9 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
+          git checkout -b hello-dev-$GITHUB_RUN_ID
           git add hello.sh
           if [[ -n "$(git status --porcelain)" ]]; then
-            git checkout -b hello-dev-$GITHUB_RUN_ID
             git commit -m "Adding hello.sh"
             gh pr create --title "Add hello.sh to main" --body "This is an automated PR" --base main --head hello-dev-$GITHUB_RUN_ID
           fi
