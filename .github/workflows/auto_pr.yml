@@ -49,5 +49,6 @@ jobs:
           git add hello.sh
           if [[ -n "$(git status --porcelain)" ]]; then
             git commit -m "Adding hello.sh"
+            git push origin HEAD:hello-dev-$GITHUB_RUN_ID
             gh pr create --title "Add hello.sh to main" --body "This is an automated PR" --base main
           fi
