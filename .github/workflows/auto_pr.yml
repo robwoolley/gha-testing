@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: auto_pr
 
 # Controls when the workflow will run
 on:
@@ -49,6 +49,5 @@ jobs:
           git add hello.sh
           if [[ -n "$(git status --porcelain)" ]]; then
             git commit -m "Adding hello.sh"
-            git push origin hello-dev-$GITHUB_RUN_ID
-            gh pr create --title "Add hello.sh to main" --body "This is an automated PR"
+            gh pr create --title "Add hello.sh to main" --body "This is an automated PR" --base main
           fi
